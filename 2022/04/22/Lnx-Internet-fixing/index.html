@@ -17,21 +17,24 @@
   <meta http-equiv="window-target" content="_top" />
   
   
-  <title>Hello World | Cicero-Guo</title>
-  <meta name="description" content="Hello everyone, I am glad to see you here! Here is Cicero’s technology blog, and it is an honor for me to share my development experience, programming skills, and some of my life feelings in this blog">
+  <title>Solution for the Internet-interrupt issue of VMware Ubuntu virtual machine (VM) that happens after the VM was suspended | Cicero-Guo</title>
+  <meta name="description" content="P.S. This article was originally printed on my cnblog site. The original one was written in Chinese.  Operation Environment:OS (host machine): Windows 11 HomeOS (virtual machine): Ubuntu 20.04.3 LTS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://cicero-guo.github.io/2022/04/16/hello-world/index.html">
+<meta property="og:title" content="Solution for the Internet-interrupt issue of VMware Ubuntu virtual machine (VM) that happens after the VM was suspended">
+<meta property="og:url" content="https://cicero-guo.github.io/2022/04/22/Lnx-Internet-fixing/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Hello everyone, I am glad to see you here! Here is Cicero’s technology blog, and it is an honor for me to share my development experience, programming skills, and some of my life feelings in this blog">
+<meta property="og:description" content="P.S. This article was originally printed on my cnblog site. The original one was written in Chinese.  Operation Environment:OS (host machine): Windows 11 HomeOS (virtual machine): Ubuntu 20.04.3 LTS">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-04-16T15:13:38.207Z">
-<meta property="article:modified_time" content="2022-04-21T16:13:25.669Z">
+<meta property="article:published_time" content="2022-04-21T16:15:56.644Z">
+<meta property="article:modified_time" content="2022-04-21T17:28:08.715Z">
 <meta property="article:author" content="Cicero-Guo">
-<meta property="article:tag" content="Chatting">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Virtual Machine">
+<meta property="article:tag" content="Ubuntu">
+<meta property="article:tag" content="Notes">
 <meta name="twitter:card" content="summary">
   <!-- Canonical links -->
-  <link rel="canonical" href="https://cicero-guo.github.io/2022/04/16/hello-world/index.html">
+  <link rel="canonical" href="https://cicero-guo.github.io/2022/04/22/Lnx-Internet-fixing/index.html">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -305,21 +308,21 @@
   <div class="slimContent">
     <nav id="toc" class="article-toc">
       <h3 class="toc-title">Catalogue</h3>
-      
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Operation-Environment"><span class="toc-number">1.</span> <span class="toc-text">Operation Environment:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reason-of-the-issue"><span class="toc-number">2.</span> <span class="toc-text">Reason of the issue</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Process-of-recovery"><span class="toc-number">3.</span> <span class="toc-text">Process of recovery</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">4.</span> <span class="toc-text">Solution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Improvement"><span class="toc-number">5.</span> <span class="toc-text">Improvement</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Reference"><span class="toc-number">6.</span> <span class="toc-text">Reference</span></a></li></ol>
     </nav>
   </div>
 </aside>
 
 <main class="main" role="main">
   <div class="content">
-  <article id="post-hello-world" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <article id="post-Lnx-Internet-fixing" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
     
     <div class="article-header">
       
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      Solution for the Internet-interrupt issue of VMware Ubuntu virtual machine (VM) that happens after the VM was suspended
     </h1>
   
 
@@ -327,20 +330,20 @@
       <div class="article-meta">
         <span class="article-date">
     <i class="icon icon-calendar-check"></i>
-	<a href="/2022/04/16/hello-world/" class="article-date">
-	  <time datetime="2022-04-16T15:13:38.207Z" itemprop="datePublished">2022-04-16</time>
+	<a href="/2022/04/22/Lnx-Internet-fixing/" class="article-date">
+	  <time datetime="2022-04-21T16:15:56.644Z" itemprop="datePublished">2022-04-22</time>
 	</a>
 </span>
         
   <span class="article-category">
     <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/Chatting/">Chatting</a>
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>►<a class="article-category-link" href="/categories/Linux/Virtual-Machine/">Virtual Machine</a>
   </span>
 
         
   <span class="article-tag">
     <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/Chatting/" rel="tag">Chatting</a>
+	<a class="article-tag-link-link" href="/tags/Linux/" rel="tag">Linux</a>, <a class="article-tag-link-link" href="/tags/Notes/" rel="tag">Notes</a>, <a class="article-tag-link-link" href="/tags/Ubuntu/" rel="tag">Ubuntu</a>, <a class="article-tag-link-link" href="/tags/Virtual-Machine/" rel="tag">Virtual Machine</a>
   </span>
 
 
@@ -353,15 +356,34 @@
 	</span>
 
 
-        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/04/16/hello-world/#comments" class="article-comment-link">Comments</a></span>
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/04/22/Lnx-Internet-fixing/#comments" class="article-comment-link">Comments</a></span>
         
       </div>
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <p>Hello everyone, I am glad to see you here! Here is Cicero’s technology blog, and it is an honor for me to share my development experience, programming skills, and some of my life feelings in this blog. I am a EEE student who aspires to become a skilled Integrated Circuit Designer in the future, and in this blog, I will share with you my knowledge about Verilog syntax, SoC design, and some other things about digital system design; besides, I am also interested in Machine Learning applications, and now I am striving to study the related courses about this area like CS229.  </p>
-<p>In the not-too-distant future, I will upload some interesting open-source projects on my <a target="_blank" rel="noopener" href="https://github.com/Cicero-Guo">Github</a>, and if you want to have a communication with me, you can comment at the bottom of each article or send me an email to: <a href="mailto:&#x6b;&#x61;&#x69;&#107;&#117;&#x6f;&#x31;&#57;&#x39;&#56;&#x40;&#104;&#111;&#116;&#109;&#x61;&#105;&#108;&#46;&#x63;&#x6f;&#x6d;">&#x6b;&#x61;&#x69;&#107;&#117;&#x6f;&#x31;&#57;&#x39;&#56;&#x40;&#104;&#111;&#116;&#109;&#x61;&#105;&#108;&#46;&#x63;&#x6f;&#x6d;</a>.  </p>
-<p>See you in the future!</p>
+        <blockquote>
+<p>P.S. This article was originally printed on my <a target="_blank" rel="noopener" href="https://www.cnblogs.com/ElectronicMagpie/p/15848077.html">cnblog</a> site. The original one was written in Chinese.</p>
+</blockquote>
+<h2 id="Operation-Environment"><a href="#Operation-Environment" class="headerlink" title="Operation Environment:"></a>Operation Environment:</h2><p>OS (host machine): Windows 11 Home<br>OS (virtual machine): Ubuntu 20.04.3 LTS 64bits<br>Version of VM: VMware® Workstation 16 Pro 16.1.0<br>Network adapter of VM: NAT mode</p>
+<h2 id="Reason-of-the-issue"><a href="#Reason-of-the-issue" class="headerlink" title="Reason of the issue"></a>Reason of the issue</h2><p>It occurred when I tried to suspend the operation of VMware to unload cpu since I wanted to tranquilize the fans at that time. However, when I woke up the VM again, an error reminder popped up and said:</p>
+<blockquote>
+<p>VMware Workstation non-recoverable: (vcpu-0)，Exception 0xc0000005 (access violation) has occurred.<br>Transmission (VMDB) Error -14: Pipe connection has been broken.</p>
+</blockquote>
+<p>Then, when I tried to use the Ubuntu for web browsing, it was found that the internet was disconnected. Therefore, it was necessary for me to fix the problem.</p>
+<h2 id="Process-of-recovery"><a href="#Process-of-recovery" class="headerlink" title="Process of recovery"></a>Process of recovery</h2><p>In the beginning, since my firefox browser reminded me the server was disconnected, I believed that the issue occurred on the DNS server connection. Following the steps on the internet, I just need to replace the current nameserver with the 8.8.8.8 offered by Google in the resolve.conf file <a target="_blank" rel="noopener" href="https://www.cnblogs.com/lxjshuju/p/7133599.html">[1]</a>. However, the internet was still disconnected, so I replaced the DNS address with 180.76.76.76 which is offered by Baidu. Nevertheless, it was still disconnected, so I thought the issue was not about the DNS server connection.</p>
+<p>Afterward, a new opinion was put forward that the issue occurred due to my host machine. After searching, I found that the above-mentioned vcpu-0 error was caused by the clash between Hyper-v and VMware, and what should I do was disable Hyper-v. Therefore, I tried to disable Hyper-v from PowerShell as administrator <a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_43406494/article/details/121065440">[2]</a>: </p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bcdedit /<span class="built_in">set</span> hypervisorlaunchtype off</span><br></pre></td></tr></table></figure>
+<p>However, it did not function as well. I also tried to reset the interfaces file referring to <a target="_blank" rel="noopener" href="https://blog.csdn.net/CaoMei_HuaCha/article/details/84846845">[3]</a>, however, it was useless.</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>The solution that repaired my VMware was the proposal put forward in <a target="_blank" rel="noopener" href="https://www.cnblogs.com/jlf0103/p/9501892.html">[4]</a>. Making short for long, it is divided into three steps:</p>
+<ol>
+<li>Changing the network adapter to host mode.</li>
+<li>Inputting the following commands in Ubuntu:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo service network-manager stop</span><br><span class="line">sudo rm /var/lib/NetworkManager/NetworkManager.state </span><br><span class="line">sudo service network-manager start</span><br></pre></td></tr></table></figure></li>
+<li>Changing the network adapter back to NAT/bridge/other modes.</li>
+</ol>
+<p>After finishing the above steps, the internet connection of my Ubuntu VMware machines returned back to normal.</p>
+<h2 id="Improvement"><a href="#Improvement" class="headerlink" title="Improvement"></a>Improvement</h2><p>Although the above-mentioned disabling Hyper-v method does not function on re-motivate VMware’s Internet, it can repair the vcpu-0 error; however, the VMDB error still exists and the suspension of my VMware still does not work. Besides, there are very a few solutions to resolve the VMDB problem on Internet (especially Chinese Internet). Therefore, this issue should be solved later if it is possible.</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/lxjshuju/p/7133599.html">[1]. https://www.cnblogs.com/lxjshuju/p/7133599.html</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_43406494/article/details/121065440">[2]. https://blog.csdn.net/m0_43406494/article/details/121065440</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/CaoMei_HuaCha/article/details/84846845">[3]. https://blog.csdn.net/CaoMei_HuaCha/article/details/84846845</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/jlf0103/p/9501892.html">[4]. https://www.cnblogs.com/jlf0103/p/9501892.html</a></p>
 
       
     </div>
@@ -371,7 +393,7 @@
     
     <li class="post-copyright-link hidden-xs">
       <strong>本文链接：</strong>
-      <a href="https://cicero-guo.github.io/2022/04/16/hello-world/" title="Hello World" target="_blank" rel="external">https://cicero-guo.github.io/2022/04/16/hello-world/</a>
+      <a href="https://cicero-guo.github.io/2022/04/22/Lnx-Internet-fixing/" title="Solution for the Internet-interrupt issue of VMware Ubuntu virtual machine (VM) that happens after the VM was suspended" target="_blank" rel="external">https://cicero-guo.github.io/2022/04/22/Lnx-Internet-fixing/</a>
     </li>
     
     <li class="post-copyright-license">
@@ -417,10 +439,10 @@
   
   <ul class="pager pull-left">
     
-    <li class="prev">
-      <a href="/2022/04/22/Lnx-Internet-fixing/" title="Solution for the Internet-interrupt issue of VMware Ubuntu virtual machine (VM) that happens after the VM was suspended"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;Newer</span></a>
-    </li>
     
+    <li class="next">
+      <a href="/2022/04/16/hello-world/" title="Hello World"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
     
     
     <li class="toggle-toc">
